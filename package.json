@@ -1,6 +1,6 @@
 {
   "name": "kakao-local-search",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
@@ -11,9 +11,7 @@
   "author": "nanangqq",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1"
-  },
-  "devDependencies": {
+    "axios": "^0.21.1",
     "dotenv": "^9.0.2"
   }
 }
