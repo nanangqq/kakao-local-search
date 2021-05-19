@@ -1,5 +1,5 @@
 const axios = require('axios')
-const { AUTH } = require('./AUTH')
+const { AUTH } = require('./AUTH_templet')
 
 const genKakaoLocalSearchApiAddress = requestType => {
   return `https://dapi.kakao.com/v2/local/search/${requestType}.json`
