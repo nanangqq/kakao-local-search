@@ -1,11 +1,13 @@
+require('dotenv').config()
 const axios = require('axios')
-const { AUTH } = require('./AUTH_templet')
+const { genAUTH } = require('./AUTH_templet')
 
 const genKakaoLocalSearchApiAddress = requestType => {
   return `https://dapi.kakao.com/v2/local/search/${requestType}.json`
 }
 
 const doKakaoLocalSearch = async (searchRaw, requestType) => {
+  const AUTH = genAUTH()
   const search = encodeURI(searchRaw)
   const res = await axios.get(
     `${genKakaoLocalSearchApiAddress(requestType)}?query=${search}`,
@@ -49,3 +51,6 @@ module.exports = {
   kakaoPlaceAsyncContextByKey,
   kakaoPlaceDirect,
 }
+
+// console.log(process.env.KAKAO_REST_KEY)
+console.log(genAUTH())
