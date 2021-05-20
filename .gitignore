@@ -3,3 +3,4 @@ data
 AUTH.js
 package-lock.json
 .env
+test
