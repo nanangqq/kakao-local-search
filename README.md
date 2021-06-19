@@ -12,13 +12,19 @@ https://developers.kakao.com/
 
 가입 후 앱 생성하여 REST API 키를 받으면, 프로젝트 폴더에 .env 파일을 만들고
 
+1. node
+
 ```
 KAKAO_REST_KEY=[--------------------------------]
 ```
 
-형식으로 입력해줘야 작동합니다. (대괄호는 실제로 입력할 필요 없음)
+2. Create-React-App. 브라우저에서 바로 사용하려는 경우. js파일에 키값이 들어가기 때문에 주의 필요. 테스트 용도로만 사용 권장.
 
+```
+REACT_APP_KAKAO_REST_KEY=[--------------------------------]
+```
 
+형식으로 입력해줘야 제대로 작동합니다. (대괄호는 실제로 입력할 필요 없음)
 
 <br/>
 
@@ -111,8 +117,8 @@ kakaoPlaceDirect('대한곱창').then(console.log)
 import Koa from 'koa'
 import Router from 'koa-router'
 import {
-    kakaoAddrAsyncContextByKey,
-    kakaoPlaceAsyncContextByKey
+  kakaoAddrAsyncContextByKey,
+  kakaoPlaceAsyncContextByKey,
 } from 'kakao-local-search'
 
 const app = new Koa()
@@ -132,10 +138,6 @@ app.listen(4000)
 // => [{"address_name":"서울 강남구 일원동","category_group_code":"AT4","category_group_name":"관광명소","category_name":"여행 > 관광,명소 > 산","distance":"","id":"10241368","phone":"","place_name":"대모산","place_url":"http://place.map.kakao.com/10241368","road_address_name":"","x":"127.0790106835936","y":"37.47482803960479"}, ...]
 ```
 
-
-
-
-
 <br/>
 
 ---
@@ -145,13 +147,12 @@ app.listen(4000)
 1. 주소검색 - https://developers.kakao.com/docs/latest/ko/local/dev-guide#address-coord
 2. 키워드로 장소검색 - https://developers.kakao.com/docs/latest/ko/local/dev-guide#search-by-keyword
 
-
-
 ---
 
 **(TODO)**
 
-1. 브라우저 환경에서 사용하려면 웹팩 설정을 통해 넣어줘야 한다고 하는데, 좀 더 쉽게 사용할 수 있는 방법이 있는지 찾아봐야 할 것 같음.(지금은... node_modules 에 kakao-local-search 에 들어가서 AUTH_templet.js 파일에 키값을 직접 넣어줘야 하는데. Node 패키지를 새로 깔거나 하면 지워짐.)
+1. ~~브라우저 환경에서 사용하려면 웹팩 설정을 통해 넣어줘야 한다고 하는데, 좀 더 쉽게 사용할 수 있는 방법이 있는지 찾아봐야 할 것 같음.(지금은... node_modules 에 kakao-local-search 에 들어가서 AUTH_templet.js 파일에 키값을 직접 넣어줘야 하는데. Node 패키지를 새로 깔거나 하면 지워짐.)~~
+   <br>
+   Create-React-App 한정 .env 에 "REACT_APP\_" prefix 환경변수값으로 브라우저에서 사용 가능. 키 노출될 수 있으니 주의 필요. 어지간하면 서버에서 처리해야 하는게 맞는 듯.
 
-2. index.js 타입스크립트로 바꾸고, typescript 노드 서버로도 테스트 해봐야 함. 
-
+2. index.js 타입스크립트로 바꾸고, typescript 노드 서버로도 테스트 해봐야 함.

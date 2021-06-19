@@ -1,4 +1,5 @@
-require('dotenv').config()
+const dot = require('dotenv')
+dot.config()
 const axios = require('axios')
 const { genAUTH } = require('./AUTH_templet')
 
@@ -19,10 +20,9 @@ const doKakaoLocalSearch = async (searchRaw, requestType) => {
 const kakaoAddrAsyncContextByKey =
   (queryKeyName = 'search') =>
   async ctx => {
-    searchText = ctx.query[queryKeyName]
-    requestType = 'address'
+    const searchText = ctx.query[queryKeyName]
+    const requestType = 'address'
     ctx.body = await doKakaoLocalSearch(searchText, requestType)
-    // console.log(ctx)
   }
 
 const kakaoAddrDirect = async searchText =>
@@ -31,10 +31,9 @@ const kakaoAddrDirect = async searchText =>
 const kakaoPlaceAsyncContextByKey =
   (queryKeyName = 'search') =>
   async ctx => {
-    searchText = ctx.query[queryKeyName]
-    requestType = 'keyword'
+    const searchText = ctx.query[queryKeyName]
+    const requestType = 'keyword'
     ctx.body = await doKakaoLocalSearch(searchText, requestType)
-    // console.log(ctx)
   }
 
 const kakaoPlaceDirect = async searchText =>
@@ -51,6 +50,3 @@ module.exports = {
   kakaoPlaceAsyncContextByKey,
   kakaoPlaceDirect,
 }
-
-// console.log(process.env.KAKAO_REST_KEY)
-console.log(genAUTH())
