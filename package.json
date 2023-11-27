@@ -1,9 +1,12 @@
 {
   "name": "kakao-local-search",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
+  "bin": {
+    "kk": "bin/kk"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "export": "npm publish --access public"
